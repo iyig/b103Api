@@ -43,16 +43,17 @@ public class Post04 extends HerOkuAppBaseUrl{
     //Set the URL
     spec.pathParam("first" ,"booking");
 
-    //Set the expected data
+          //Set the expected data
 
-   BookingDatesPojo bookingDatesPojo= new BookingDatesPojo( "2021-09-21" ,"2021-12-21");
-  BookingPojo expectedData= new BookingPojo("Ali","Cam",999,true,bookingDatesPojo,"Breakfast");
-    System.out.println("expectedData" + expectedData);
-//Send the  request  and get the response
-Response response=given().spec(spec).when().body(expectedData).post("{first}");
-response.prettyPrint();
+      BookingDatesPojo bookingDatesPojo= new BookingDatesPojo( "2021-09-21" ,"2021-12-21");
+      BookingPojo expectedData= new BookingPojo("Ali","Cam",999,true,bookingDatesPojo,"Breakfast");
+      System.out.println("expectedData" + expectedData);
 
-//Do Assertion
+            //Send the  request  and get the response
+      Response response=given().spec(spec).when().body(expectedData).post("{first}");
+       response.prettyPrint();
+
+           //Do Assertion
     BookingResponsePojo actualData=response.as(BookingResponsePojo.class);
     System.out.println("actualData" + actualData);
 assertEquals(200,response.statusCode());

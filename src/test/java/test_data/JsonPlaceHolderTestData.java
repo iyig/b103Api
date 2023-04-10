@@ -20,5 +20,17 @@ public Map<String,Object> expectedDataMethod(Integer userId,String title,Boolean
     return expectedData;
 
 }
+public static String expectedDataInstring(Integer userId, String title,Boolean completed){
 
+            return"{ \"userId\":"+userId+",\"title\":\""+title+"\",\"completed\":"+completed+"}";
+
+/*
+
+                   { "userId":10,"id":198, "title":"quis eius est sint explicaba","completed":true}
+
+
+
+*/
+
+}
 }
