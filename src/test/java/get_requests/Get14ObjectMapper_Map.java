@@ -44,19 +44,20 @@ And response body is like      {
         //"                                 \"completed\":true\n" +
         //"                                   }";
 
-String json= JsonPlaceHolderTestData.expectedDataInstring(10,"quis eius est sint explicabo",true);
-    Map<String,Object> expectedData=ObjectMapperUtils.convertJsonToJava(json, HashMap.class);
+       String json= JsonPlaceHolderTestData.expectedDataInstring(10,"quis eius est sint explicabo",true);
 
+
+    Map<String,Object> expectedData=ObjectMapperUtils.convertJsonToJava(json, HashMap.class);
     System.out.println("expectedData = " + expectedData);
 
     //Sent the rquest and get the response
 
-  Response response=  given().when().spec(spec).get("/{first}/{second}");
-  response.prettyPrint();
+     Response response=  given().when().spec(spec).get("/{first}/{second}");
+     response.prettyPrint();
 
 
-  //Do Assetion
-   Map<String,Object>actualData= ObjectMapperUtils.convertJsonToJava(response.asString(),HashMap.class);
+        //Do Assetion
+     Map<String,Object>actualData= ObjectMapperUtils.convertJsonToJava(response.asString(),HashMap.class);
 
     System.out.println("actualData = " + actualData);
 

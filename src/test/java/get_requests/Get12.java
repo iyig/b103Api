@@ -3,9 +3,8 @@ package get_requests;
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import org.testng.annotations.TestInstance;
-import posjos.BookingDatesPojo;
-import posjos.BookingPojo;
+import pojo.BookingDatesPojo;
+import pojo.BookingPojo;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;

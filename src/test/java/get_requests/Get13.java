@@ -3,8 +3,8 @@ package get_requests;
 import base_urls.GoRestBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import posjos.GoRestDataPojo;
-import posjos.GoRestPojo;
+import pojo.GoRestDataPojo;
+import pojo.GoRestPojo;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
@@ -28,6 +28,7 @@ public class Get13 extends GoRestBaseUrl {
 
     public void get13(){
 spec.pathParams("first","users","second",247152);
+
     // Set the expected data
     GoRestDataPojo goRestDataPojo=new GoRestDataPojo("Chandak Dutta","dutta_chandak@bartoletti.name","female","inactive");
     GoRestPojo expectedData=new GoRestPojo(null,goRestDataPojo);

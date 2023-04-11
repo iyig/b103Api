@@ -2,9 +2,8 @@ package post_requests;
 
 import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
-import posjos.JsonPlaceHolderPojo;
+import pojo.JsonPlaceHolderPojo;
 import util.ObjectMapperUtils;
 
 import java.io.IOException;

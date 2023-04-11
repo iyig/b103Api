@@ -3,10 +3,9 @@ package post_requests;
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
-import org.testng.IExpectedExceptionsHolder;
-import posjos.BookingDatesPojo;
-import posjos.BookingPojo;
-import posjos.BookingResponsePojo;
+import pojo.BookingDatesPojo;
+import pojo.BookingPojo;
+import pojo.BookingResponsePojo;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
