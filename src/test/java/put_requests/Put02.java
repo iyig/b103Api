@@ -8,6 +8,7 @@ import pojo.DummyRestApiResponseBodyPojo;
 import util.ObjectMapperUtils;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class Put02 extends DummyRestApiBaseUrl {
 
@@ -44,7 +45,8 @@ public class Put02 extends DummyRestApiBaseUrl {
         //Set the expected data
         DummyRestApiDataPojo expectedData = new DummyRestApiDataPojo("Ali Can", 111111, 23, "Perfect image");
         System.out.println("expectedData = " + expectedData);
-
+        DummyRestApiResponseBodyPojo expectedBodyPojo=new DummyRestApiResponseBodyPojo("success",expectedData,"Successfully! Record has been fetched.");
+      //expectedBodyPojo objesini actualData data ile karşılaştırarak assertion yapmak icin oluşturduk
         //Send the request and get the response
 
         Response response = given().spec(spec).when().body(expectedData).put("/{first}/{second}");
@@ -52,8 +54,20 @@ public class Put02 extends DummyRestApiBaseUrl {
 
 
         //Do Assetion
+DummyRestApiResponseBodyPojo actualData=ObjectMapperUtils.convertJsonToJava(response.asString(),DummyRestApiResponseBodyPojo.class);
+assertEquals(200,response.statusCode());
+assertEquals(expectedBodyPojo.getStatus(),actualData.getStatus());
+assertEquals(expectedBodyPojo.getMessage(),actualData.getMessage());
 
-        DummyRestApiResponseBodyPojo actualData = ObjectMapperUtils.convertJsonToJava(response.asString(), DummyRestApiResponseBodyPojo.class);
-        System.out.println("actualData = " + actualData);
+assertEquals(expectedData.getEmployee_name(),actualData.getData().getEmployee_name());
+assertEquals(expectedData.getEmployee_salary(),actualData.getData().getEmployee_salary());
+assertEquals(expectedData.getEmployee_age(),actualData.getData().getEmployee_age());
+assertEquals(expectedData.getProfile_image(),actualData.getData().getProfile_image());
+
+
+
+
+
+
     }
 }
